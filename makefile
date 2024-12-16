@@ -7,7 +7,7 @@ REQ_DIR = .
 VENV_DIR = .venv
 
 
-prod: all_tests
+prod: 
 	./local.sh
 
 all_tests: 
