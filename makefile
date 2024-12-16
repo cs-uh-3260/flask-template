@@ -4,23 +4,21 @@ include common.mk
 API_DIR = server
 DB_DIR = data
 REQ_DIR = .
+VENV_DIR = .venv
 
-FORCE:
 
-prod: all_tests github
+prod: all_tests
+	./local.sh
 
-github: FORCE
-	- git commit -a
-	git push origin master
-
-all_tests: FORCE
+all_tests: 
 	cd $(API_DIR); make tests
 	cd $(DB_DIR); make tests
 
-dev_env: FORCE
+dev_env: 
+	if [ ! -d $(VENV_DIR) ]; then python -m venv $(VENV_DIR); fi
+	source $(VENV_DIR)/bin/activate
 	pip install -r $(REQ_DIR)/requirements-dev.txt
-	@echo "You should set PYTHONPATH to: "
-	@echo $(shell pwd)
+	export PYTHON_PATH=$(shell pwd)
 
-docs: FORCE
+docs:
 	cd $(API_DIR); make docs
