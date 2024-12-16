@@ -7,6 +7,13 @@ An example flask rest API server.
 - python 3.10 or higher
 - mongodb installed. Follow [https://www.mongodb.com/docs/manual/installation/](https://www.mongodb.com/docs/manual/installation/) to install mongodb locally. Select the right link for your operating system.
 
+## Tech Stack
+
+This flask web app uses:
+
+- [flask-restx](https://flask-restx.readthedocs.io/en/latest/quickstart.html) for creating REST APIs. Directory structure following [this setup](https://flask-restx.readthedocs.io/en/latest/scaling.html)
+- pymongodb for communicating with the the mongodb database
+
 ## Running the server locally
 
 1. Run `make dev_env` to create a virtual environment and install dependencies
