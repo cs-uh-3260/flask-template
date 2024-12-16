@@ -16,7 +16,7 @@ all_tests:
 
 dev_env: 
 	if [ ! -d $(VENV_DIR) ]; then python -m venv $(VENV_DIR); fi
-	source $(VENV_DIR)/bin/activate
+	. $(VENV_DIR)/bin/activate
 	pip install -r $(REQ_DIR)/requirements-dev.txt
 	export PYTHON_PATH=$(shell pwd)
 
