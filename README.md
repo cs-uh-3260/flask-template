@@ -14,6 +14,7 @@ This flask web app uses:
 - [flask-restx](https://flask-restx.readthedocs.io/en/latest/quickstart.html) for creating REST APIs. Directory structure following [this setup](https://flask-restx.readthedocs.io/en/latest/scaling.html)
 - flask-restx automatically generates [OpenAPI specifications](https://swagger.io/docs/specification/v3_0/about/) for your API
 - pymongodb for communicating with the the mongodb database
+- pytest for testing (see [https://flask.palletsprojects.com/en/stable/testing/](https://flask.palletsprojects.com/en/stable/testing/) for more info specific to testing Flask applications)
 
 ## Running the server locally
 
