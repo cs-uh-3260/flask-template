@@ -1,6 +1,7 @@
 from flask_restx import Api
 
 from .hello import api as hello
+from .student import api as student
 
 api = Api(
     title="JobBoard",
@@ -9,3 +10,4 @@ api = Api(
 )
 
 api.add_namespace(hello)
+api.add_namespace(student)

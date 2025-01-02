@@ -6,7 +6,7 @@ REQ_DIR = .
 VENV_DIR = .venv
 
 
-prod: 
+prod: dev_env
 	./run_local_server.sh
 
 dev_env: 
