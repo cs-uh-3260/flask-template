@@ -1,11 +1,14 @@
 from flask import Flask
+
+from app.config import DevelopmentConfig
 from .apis.student import api as student
 from .apis.hello import api as hello
 from flask_restx import Api
 
 
-def create_app():
+def create_app(config=DevelopmentConfig):
     app = Flask(__name__)
+    app.config.from_object(config)
 
     api = Api(
         title="JobBoard",
