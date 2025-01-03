@@ -20,7 +20,6 @@ def app():
 
 @pytest.fixture()
 def client(app):
-    print("FIXTURE CALLED -=")
     return app.test_client()
 
 
