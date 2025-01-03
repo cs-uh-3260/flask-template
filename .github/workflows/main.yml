@@ -1,6 +1,6 @@
 # This is a workflow to test and deploy our demo app.
 
-name: Demo CI/CD
+name: Run tests
 
 # Controls when the workflow will run
 on:
@@ -12,8 +12,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  PYTHONPATH: /home/runner/work/flask-template/flask-template/
+# env:
+#   PYTHONPATH: /home/runner/work/flask-template/flask-template/
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,25 +24,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Set up Python 3.9
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
           # Semantic version range syntax or exact version of a Python version
-          python-version: '3.9'
-          # Optional - x64 or x86 architecture, defaults to x64
-          architecture: 'x64'
-      # You can test your matrix by printing the current Python version
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
+          python-version: '3.10.6'
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - name: Install MongoDB in a Docker container.
         uses: supercharge/mongodb-github-action@1.8.0
-
-      - name: Install Python packages.
-        run: make dev_env
 
       - name: Run tests
         run: make tests
