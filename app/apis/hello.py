@@ -1,11 +1,12 @@
 from flask_restx import Namespace, Resource
+from http import HTTPStatus
 
 api = Namespace(
     "hello", description="Simple hello world endpoint for making sure app works"
 )
 
 
-@api.route("/hello")
+@api.route("/")
 class HelloWorld(Resource):
     """
     The purpose of the HelloWorld class is to have a simple test to see if the
@@ -16,4 +17,4 @@ class HelloWorld(Resource):
         """
         A trivial endpoint to see if the server is running.
         """
-        return {"hello": "world!"}
+        return {"hello": "world!"}, HTTPStatus.OK

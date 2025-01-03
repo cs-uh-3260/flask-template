@@ -1,5 +1,5 @@
 from flask_restx import Namespace, Resource, fields
-import db.students as students
+from ..db import students
 from http import HTTPStatus
 from flask import request
 from bson.json_util import dumps
