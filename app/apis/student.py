@@ -1,7 +1,7 @@
 from flask_restx import Namespace, Resource, fields
 from ..db import students
 from http import HTTPStatus
-from flask import request
+from flask import jsonify, request
 from bson.json_util import dumps
 
 api = Namespace("students", description="Endpoint for students")
@@ -21,7 +21,7 @@ class StudentList(Resource):
 
     def get(self):
         student_list = students.get_students()
-        return dumps(student_list), HTTPStatus.OK
+        return student_list, HTTPStatus.OK
 
     @api.expect(STUDENT_CREATE_FLDS)
     def post(self):
@@ -47,7 +47,7 @@ class Student(Resource):
         if student is None:
             return "Student not found", HTTPStatus.NOT_FOUND
 
-        return dumps(student), HTTPStatus.OK
+        return student, HTTPStatus.OK
 
     @api.expect(STUDENT_CREATE_FLDS)
     @api.doc("Update a specific student, identified by email")
