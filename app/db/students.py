@@ -16,8 +16,8 @@ def _get_student_collection():
 
 
 def get_students():
-    students = _get_student_collection().find({})
-    return students
+    students = _get_student_collection().find({}, {"_id": 0})
+    return list(students)
 
 
 def create_student(name: str, email: str, seniority: str):
@@ -39,5 +39,5 @@ def update_student(lookupemail: str, name: str, email: str, seniority: str):
 
 
 def get_student_by_email(email: str):
-    student = _get_student_collection().find_one({EMAIL: email})
+    student = _get_student_collection().find_one({EMAIL: email}, {"_id": 0})
     return student
